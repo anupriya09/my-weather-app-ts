@@ -1,11 +1,12 @@
  import { Card } from "react-bootstrap";
 import { WeatherDataArray } from "./WeatherInterface";
+import './CityWeather.css';
 
 function CityWeather(props:{cityWeatherData: WeatherDataArray; }){
     return (
       <>
         {props.cityWeatherData.map((data) => (
-        <Card style={{ width: 'fit-content' , border: '0.1rem black solid', padding:'0.5rem', margin:'1rem',textAlign:'center'}}>
+        <Card className="WeatherCard" >
           <Card.Body>
             <Card.Title>Weather Summary</Card.Title>
             <Card.Text>{data.name}</Card.Text>    

@@ -26,9 +26,9 @@ function App() {
   return (
     <Container  className="mainContainer" >
       <AddCity updatedCity={updatedCity} setUpdatedCity={setUpdatedCity}/>
-      <div className="weatherContainer">
+      <Container className="weatherContainer">
       <CityWeather cityWeatherData = {weatherData} />
-      </div>  
+      </Container>  
       <div></div> 
     </Container>
   );
