@@ -1,38 +1,37 @@
-import { useRef, useState } from "react";
-import { Form } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from './store';
+import { useState } from "react";
+import './AddCity.css';
 
-function AddCity(props:{updatedCity:string, setUpdatedCity:React.Dispatch<React.SetStateAction<string>>}){
+export function AddCity(){
 
+  const [inputCityValue, setInputCityValueLocal] = useState('');
+  const city = useSelector((state: RootState) => state.city);
+  const dispatch = useDispatch();
 
-    const [city,setCity] = useState<string>();
-    
-    const handleOnChange = (event : any) => {
-      setCity(event.target.value);
-    };
-    const inputCity = useRef<HTMLInputElement>(null);
+  const handleInputChange = (event: any) =>
+  {
+    const newValue = event.target.value;
+    if (!/\d/.test(newValue)) 
+    { // Check if the new value contains any digits
+      setInputCityValueLocal(event.target.value);
+    }
+  }
 
-    const handleKeyDown = (event : any) => {
-      if (event.key === 'Enter') {
-        // 👇 Get input value
-        if (inputCity.current != null) {
-          props.setUpdatedCity(inputCity.current?.value);
-          setCity(inputCity.current?.value);
-        }
-      }
-    };
+  const handleSubmit = (event : any) => {
+      event.preventDefault(); 
+      dispatch({ type: 'UPDATE_CITY', city:inputCityValue });     
+  }
   
-    return (    
-    <Form onSubmit={e => { e.preventDefault(); }}>
-      <Form.Group className="mb-3 weatherForm">
-        <Form.Label htmlFor="">My Weather App</Form.Label>
+  return ( 
+
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3 form-group" controlId="AddCityForm.Input">
+        <Form.Label>Overview Weather Widget</Form.Label>
         <Form.Control 
-          as="input"
-          id={props.updatedCity}
-          name="city"
-          value={city}
-          ref={inputCity}
-          onKeyDown={handleKeyDown} 
-          onChange={handleOnChange}
+          value={inputCityValue}
+          onChange={handleInputChange}
           className="cityName" 
           type="text" 
           placeholder="Enter city"/>
@@ -41,4 +40,4 @@ function AddCity(props:{updatedCity:string, setUpdatedCity:React.Dispatch<React.
     );
   }
 
-  export default AddCity;
+export default AddCity;

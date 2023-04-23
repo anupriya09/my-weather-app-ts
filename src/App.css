@@ -1,21 +1,23 @@
 .mainContainer{
-  border: 2px solid #6b6b6b;
-  margin: 0.1rem;
-  background-color: #d0d0d0;
-  padding:0.5rem;
-}
-
-.cityName{
-    float: right;
-  }
-
-.card-text{
-  margin-block : 0rem !important;
-  margin-inline: 0rem !important;
+  border: 0px solid #6b6b6b;
+  margin: 0rem;
+  padding:0rem;
 }
 
 .weatherContainer{
   display: flex;
   flex-wrap: wrap;
   
+}
+
+.mainHeader{
+  background-color: #666666;
+  font-size: larger;
+  height:4rem;
+  margin: 0rem;
+}
+
+.headerText{
+  padding: 1rem;
+   color: white;
 }
