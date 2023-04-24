@@ -1,8 +1,17 @@
+export interface WeatherDataResponse{
+  config: {},
+  data: WeatherData,
+
+}
+export interface WeatherDataEntry {
+  id: number,
+  weatherData : WeatherData
+}
 export interface WeatherData{
     coord:{},
     weather: [{}],
     base : string | null,
-    main: WeatherDataMain,
+    main: WeatherDataMain ,
     visibility: number | null,
     wind: {},
     clouds: {},
@@ -23,5 +32,5 @@ export interface WeatherDataMain{
   humidity:number
 }
 
-export interface WeatherDataArray extends Array<WeatherData>{}
+export interface WeatherDataArray extends Array<WeatherDataEntry>{}
 

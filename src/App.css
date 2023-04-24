@@ -21,3 +21,6 @@
   padding: 1rem;
    color: white;
 }
+.toggleTempUnit{
+  float:right;
+}

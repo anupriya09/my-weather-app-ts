@@ -11,9 +11,12 @@
  .cardTitle{
    background-color: #888888;
    text-align: left;
-   padding: 0.1rem;
+   padding-left:0.3rem;
+   padding-bottom: 0.2rem;
    color: #dfdfdf;
    font-size: large;
+   display:flex;
+   justify-content: space-between;
  }
 .weatherCardBody{
    display: flex;
@@ -39,4 +42,10 @@
    border: 0.1rem solid #a8a8a8;
    display: flex;
 }
+.headerIcons{
+   padding-top:0.2rem;
+}
 
+.refreshIcon{
+   margin-right: 0.2rem;
+}
